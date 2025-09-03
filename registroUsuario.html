@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="mb-4 text-center">Registro Usuarios</h1>
+        <form id="userform" class="border p-4 rounder bg-withe"></form>
+            <div class="row mb-3">
+                <label for="nombre" class="form-label">Nombre Completo</label>
+                <input type="text" id="nombre" class="form-control" required />
+            <div>
+            <div class="row mb-3">
+                <label for="correo" class="form-label">Email</label>
+                <input type="correo" id="ccorreo" class="form-control" required />
+            </div>
+            <div class="row mb-3">
+                <label for="correo" class="form-label">Confirmar Email</label>
+                <input type="correo" id="ccorreo" class="form-control" required />
+            </div>
+            <div class="row mb-3">
+                <label for="contraseña" class="form-label">Contraseña</label>
+                <input type="password" id="contraseña" class="form-control" required />
+            </div>
+            <div class="row mb-3">
+                <label for="contraseña" class="form-label">Confirmar Contraseña</label>
+                <input type="password" id="ccontraseña" class="form-control" required />
+            </div>
+            <div class="row mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="telefono" id="telefono" class="form-control"/>
+            </div>
+            <div class="row mb-3">
+                <label for="region" class="form-label">Región</label>
+                <select class="form-select" id="region">
+                    <option selected disabled>Seleccione una región</option>
+                    <option >Región de Arica y Parinacota</option>
+                    <option >Región de Tarapacá</option>
+                    <option >Región de Antofagasta</option>
+                    <option >Región de Atacama</option>
+                    <option >Región de Coquimbo</option>
+                    <option >Región de Valparaíso</option>
+                    <option >Región Metropolitana</option>
+                    <option >Región de O'Higgins</option>
+                    <option >Región del Maule</option>
+                    <option >Región de Ñuble</option>
+                    <option >Región de La Araucanía</option>
+                    <option >Región de Los Ríos</option>
+                    <option >Región de Los Lagos</option>
+                </select>
+            </div>
+            <div class="row mb-3">
+                <label for="comuna" class="form-label">comuna</label>
+                <select class="form-select" id="comuna">
+                    <option select disabled>Seleccione un comuna</option>
+                    <option >Quilicura</option>
+                    <option >Quillota</option>
+                    <option >Valparaiso</option>
+                    <option >Viña del mar</option>
+                    <option >Los Andes</option>
+                </select>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-success">Registrarse</button>
+            </div>
+        </form>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
