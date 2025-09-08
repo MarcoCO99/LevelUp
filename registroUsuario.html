@@ -6,72 +6,117 @@
     <title>Document</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-    <div class="container py-5">
-        <h1 class="mb-4 text-center">Registro Usuarios</h1>
-        <form id="userform" class="border p-4 rounder bg-withe"></form>
-            <div class="row mb-3">
-                <label for="nombre" class="form-label">Nombre Completo</label>
-                <input type="text" id="nombre" class="form-control" required />
-            <div>
-            <div class="row mb-3">
-                <label for="correo" class="form-label">Email</label>
-                <input type="correo" id="ccorreo" class="form-control" required />
-            </div>
-            <div class="row mb-3">
-                <label for="correo" class="form-label">Confirmar Email</label>
-                <input type="correo" id="ccorreo" class="form-control" required />
-            </div>
-            <div class="row mb-3">
-                <label for="contraseña" class="form-label">Contraseña</label>
-                <input type="password" id="contraseña" class="form-control" required />
-            </div>
-            <div class="row mb-3">
-                <label for="contraseña" class="form-label">Confirmar Contraseña</label>
-                <input type="password" id="ccontraseña" class="form-control" required />
-            </div>
-            <div class="row mb-3">
-                <label for="telefono" class="form-label">Teléfono</label>
-                <input type="telefono" id="telefono" class="form-control"/>
-            </div>
-            <div class="row mb-3">
-                <label for="region" class="form-label">Región</label>
-                <select class="form-select" id="region">
-                    <option selected disabled>Seleccione una región</option>
-                    <option >Región de Arica y Parinacota</option>
-                    <option >Región de Tarapacá</option>
-                    <option >Región de Antofagasta</option>
-                    <option >Región de Atacama</option>
-                    <option >Región de Coquimbo</option>
-                    <option >Región de Valparaíso</option>
-                    <option >Región Metropolitana</option>
-                    <option >Región de O'Higgins</option>
-                    <option >Región del Maule</option>
-                    <option >Región de Ñuble</option>
-                    <option >Región de La Araucanía</option>
-                    <option >Región de Los Ríos</option>
-                    <option >Región de Los Lagos</option>
-                </select>
-            </div>
-            <div class="row mb-3">
-                <label for="comuna" class="form-label">comuna</label>
-                <select class="form-select" id="comuna">
-                    <option select disabled>Seleccione un comuna</option>
-                    <option >Quilicura</option>
-                    <option >Quillota</option>
-                    <option >Valparaiso</option>
-                    <option >Viña del mar</option>
-                    <option >Los Andes</option>
-                </select>
-            </div>
-            <div class="d-grid">
-                <button type="submit" class="btn btn-success">Registrarse</button>
-            </div>
-        </form>
-    </div>
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
 
+</head>
+<body class="bg-dark">
+    <div class="main-container">
+        <!--Titulo y navbar-->
+        <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <header class="main-header container">
+                <h1 class="text-white">Level-Up gamer</h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">🛒 Carrito</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+
+        <a href="index.html" class="btn btn-primary"> Volver </a>
+        <div class="container py-5">
+            <h2 class="mb-4 text-white">Registro Usuarios</h2>
+            <form id="userform" class="border p-4 rounder bg-withe text-white">Ingrese los datos solicitados</form>
+                <div class="row mb-3">
+                    <label for="nombre" class="form-label text-white">Nombre Completo</label>
+                    <input type="text" id="nombre" class="form-control" required />
+                <div>
+                <div class="row mb-3">
+                    <label for="correo" class="form-label text-white">Email</label>
+                    <input type="correo" id="correo" class="form-control" required />
+                </div>
+                <div class="row mb-3">
+                    <label for="contraseña" class="form-label text-white">Contraseña</label>
+                    <input type="password" id="contraseña" class="form-control" required />
+                </div>
+                <div class="row mb-3">
+                    <label for="telefono" class="form-label text-white">Teléfono</label>
+                    <input type="telefono" id="telefono" class="form-control"/>
+                </div>
+                <div class="row mb-3">
+                    <label for="region" class="form-label text-white">Región</label>
+                    <select class="form-select " id="region">
+                        <option selected disabled>Seleccione una región</option>
+                        <option >Región de Arica y Parinacota</option>
+                        <option >Región de Tarapacá</option>
+                        <option >Región de Antofagasta</option>
+                        <option >Región de Atacama</option>
+                        <option >Región de Coquimbo</option>
+                        <option >Región de Valparaíso</option>
+                        <option >Región Metropolitana</option>
+                        <option >Región de O'Higgins</option>
+                        <option >Región del Maule</option>
+                        <option >Región de Ñuble</option>
+                        <option >Región de La Araucanía</option>
+                        <option >Región de Los Ríos</option>
+                        <option >Región de Los Lagos</option>
+                    </select>
+                </div>
+                <div class="row mb-3">
+                    <label for="comuna" class="form-label text-white">Comuna</label>
+                    <select class="form-select" id="comuna">
+                        <option selected disabled>Seleccione una comuna</option>
+                        <option >Santiago</option>
+                        <option >Quillota</option>
+                        <option >Valparaiso</option>
+                        <option >Viña del mar</option>
+                        <option >Los Andes</option>
+                    </select>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Registrarse</button>
+                </div>
+            </form>
+            <footer class="bg-dark text-white text-center py-4">
+                <p>Síguenos en nuestras redes</p>
+                <a href="https://www.facebook.com" target="_blank" class="text-white me-3">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                <a href="https://www.twitter.com" target="_blank" class="text-white me-3">
+                    <i class="fab fa-twitter fa-2x"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" class="text-white me-3">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                <a href="https://www.youtube.com" target="_blank" class="text-white">
+                    <i class="fab fa-youtube fa-2x"></i>
+                </a>
+                <p class="mt-3 mb-0 text" >&copy; 2025 Level-UP gamer - Todos los derechos reservados</p>
+            </footer>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/usuarios.js"></script>
 </body>
 </html>
