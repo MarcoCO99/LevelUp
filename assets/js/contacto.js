@@ -1,8 +1,5 @@
 (() => {
-  "use strict";
-
   const form = document.getElementById("userform");
-  if (!form) return;
 
   const email = document.getElementById("inputEmail4");
   const nombre = document.getElementById("nombre");
