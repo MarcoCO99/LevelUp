@@ -70,43 +70,63 @@
 
     <!-- FORMULARIO DE CONTACTO -->
     <div class="container p-5 rounded mt-5" style="background-color: #1f1d1e">
-      <h1 class="mb-4 text-center" style="color: white; border: black">
+      <h1 class="mb-4 text-center" style="color: white">
         Formulario de contacto
       </h1>
+
       <form
         id="userform"
-        class="p-4 rounded shadow"
+        class="p-4 rounded shadow needs-validation"
         style="background-color: #1f1d1e; color: #ffffff"
+        novalidate
       >
         <div class="row mb-3">
-          <label for="correo" class="form-label">Nombre completo</label>
+          <label for="nombre" class="form-label">Nombre completo</label>
           <input
             type="text"
-            id="correo"
+            id="nombre"
+            name="nombre"
             class="form-control"
             placeholder="Pedro Miguel Torres Jimenez"
             required
+            maxlength="100"
           />
+          <div class="invalid-feedback">
+            El nombre es obligatorio y no debe superar los 100 caracteres.
+          </div>
         </div>
+
         <div class="row mb-3">
-          <label for="inputEmail4">Email</label>
+          <label for="inputEmail4" class="form-label">Email</label>
           <input
             type="email"
             class="form-control"
             id="inputEmail4"
+            name="email"
             placeholder="tucorreo@gmail.com"
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$"
           />
+          <div class="invalid-feedback">
+            Ingresa un correo válido: @duoc.cl, @profesor.duoc.cl o @gmail.com
+          </div>
         </div>
+
         <div class="row mb-3">
-          <label for="correo" class="form-label">Contenido</label>
-          <input
-            type="text"
-            id="correo"
+          <label for="contenido" class="form-label">Contenido</label>
+          <textarea
+            id="contenido"
+            name="contenido"
             class="form-control"
-            aria-describedby="cotenidoHelpBlock"
+            aria-describedby="contenidoHelpBlock"
             placeholder="Necesito hacer una devolución del producto..."
             required
-          />
+            maxlength="500"
+            rows="4"
+          ></textarea>
+          <div class="invalid-feedback">
+            El contenido es obligatorio y no debe superar los 500 caracteres.
+          </div>
           <small
             id="contenidoHelpBlock"
             class="form-text"
@@ -116,16 +136,13 @@
             problema con un producto.
           </small>
         </div>
+
         <div class="d-grid">
-          <button
-            type="submit"
-            class="btn btn-success"
-            style="background-color: #1e90ff"
-          >
-            Enviar correo
-          </button>
+          <button type="submit" class="btn btn-primary">Enviar correo</button>
         </div>
       </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/contacto.js" defer></script>
   </body>
 </html>
