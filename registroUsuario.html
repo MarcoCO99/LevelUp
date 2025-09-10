@@ -8,14 +8,93 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./assets/css/registroUsuario.css" />
   </head>
-  <body class="bg-light">
+  <body style="background-color: #161515">
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark p-3"
+      style="background-color: #1f1d1e"
+    >
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo03"
+          aria-controls="navbarTogglerDemo03"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img
+            src="./assets/img/Logotipo de _LEVEL-UP GAMER_.png"
+            alt="Logo Level-Up Shop"
+            height="70"
+          />
+        </a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./productos.html">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./nosotros.html">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./blogs.html">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contacto.html">Contacto</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item d-flex align-items-center">
+              <a class="nav-link text-light" href="./detalleProducto.html">
+                <i class="bi bi-cart"></i> Cart (<span class="cant-carrito"
+                  >0</span
+                >)
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- LEVEL UP ICON -->
+    <div class="d-flex justify-content-center m-5">
+      <div class="d-flex flex-column">
+        <img
+          src="./assets/img/Logotipo de _LEVEL-UP GAMER_.png"
+          alt="Logotipo LevelUp"
+          width="200px"
+        />
+        <span style="color: #ffffff" class="text-center">Level-Up Gamer!</span>
+      </div>
+    </div>
+
+    <!-- CONTAINER PRINCIPAL -->
     <div class="container py-5">
-      <h1 class="mb-4 text-center">Registro Usuarios</h1>
+      <h1 class="mb-4 text-center" style="color: #ffff">Registro Usuarios</h1>
 
       <div class="alert-container"></div>
 
-      <form id="userform" class="border p-4 rounded bg-white">
+      <form
+        id="userform"
+        class="p-4 rounded shadow"
+        style="background-color: #1f1d1e; color: #ffffff"
+      >
         <div class="row mb-3">
           <label for="nombre" class="form-label">Nombre Completo</label>
           <input type="text" id="nombre" class="form-control" required />
