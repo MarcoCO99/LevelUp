@@ -1,77 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Usuarios</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
     <div class="container py-5">
-        <h1 class="mb-4 text-center">Registro Usuarios</h1>
-        <form id="userform" class="border p-4 rounder bg-withe"></form>
-            <div class="row mb-3">
-                <label for="nombre" class="form-label">Nombre Completo</label>
-                <input type="text" id="nombre" class="form-control" required />
-            <div>
-            <div class="row mb-3">
-                <label for="correo" class="form-label">Email</label>
-                <input type="correo" id="ccorreo" class="form-control" required />
-            </div>
-            <div class="row mb-3">
-                <label for="correo" class="form-label">Confirmar Email</label>
-                <input type="correo" id="ccorreo" class="form-control" required />
-            </div>
-            <div class="row mb-3">
-                <label for="contraseña" class="form-label">Contraseña</label>
-                <input type="password" id="contraseña" class="form-control" required />
-            </div>
-            <div class="row mb-3">
-                <label for="contraseña" class="form-label">Confirmar Contraseña</label>
-                <input type="password" id="ccontraseña" class="form-control" required />
-            </div>
-            <div class="row mb-3">
-                <label for="telefono" class="form-label">Teléfono</label>
-                <input type="telefono" id="telefono" class="form-control"/>
-            </div>
-            <div class="row mb-3">
-                <label for="region" class="form-label">Región</label>
-                <select class="form-select" id="region">
-                    <option selected disabled>Seleccione una región</option>
-                    <option >Región de Arica y Parinacota</option>
-                    <option >Región de Tarapacá</option>
-                    <option >Región de Antofagasta</option>
-                    <option >Región de Atacama</option>
-                    <option >Región de Coquimbo</option>
-                    <option >Región de Valparaíso</option>
-                    <option >Región Metropolitana</option>
-                    <option >Región de O'Higgins</option>
-                    <option >Región del Maule</option>
-                    <option >Región de Ñuble</option>
-                    <option >Región de La Araucanía</option>
-                    <option >Región de Los Ríos</option>
-                    <option >Región de Los Lagos</option>
-                </select>
-            </div>
-            <div class="row mb-3">
-                <label for="comuna" class="form-label">comuna</label>
-                <select class="form-select" id="comuna">
-                    <option select disabled>Seleccione un comuna</option>
-                    <option >Quilicura</option>
-                    <option >Quillota</option>
-                    <option >Valparaiso</option>
-                    <option >Viña del mar</option>
-                    <option >Los Andes</option>
-                </select>
-            </div>
-            <div class="d-grid">
-                <button type="submit" class="btn btn-success">Registrarse</button>
-            </div>
-        </form>
+      <h1 class="mb-4 text-center">Registro Usuarios</h1>
+
+      <!-- Contenedor de alertas -->
+      <div class="alert-container"></div>
+
+      <form id="userform" class="border p-4 rounded bg-white">
+        <div class="row mb-3">
+          <label for="nombre" class="form-label">Nombre Completo</label>
+          <input type="text" id="nombre" class="form-control" required />
+        </div>
+
+        <div class="row mb-3">
+          <label for="fechaNacimiento" class="form-label"
+            >Fecha de Nacimiento</label
+          >
+          <!-- Se permite seleccionar cualquier fecha -->
+          <input
+            type="date"
+            id="fechaNacimiento"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label for="correo" class="form-label">Email</label>
+          <input type="email" id="correo" class="form-control" required />
+        </div>
+
+        <div class="row mb-3">
+          <label for="ccorreo" class="form-label">Confirmar Email</label>
+          <input type="email" id="ccorreo" class="form-control" required />
+        </div>
+
+        <div class="row mb-3">
+          <label for="contraseña" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            id="contraseña"
+            class="form-control"
+            minlength="6"
+            required
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label for="ccontraseña" class="form-label"
+            >Confirmar Contraseña</label
+          >
+          <input
+            type="password"
+            id="ccontraseña"
+            class="form-control"
+            minlength="6"
+            required
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label for="telefono" class="form-label">Teléfono (opcional)</label>
+          <input
+            type="tel"
+            id="telefono"
+            class="form-control"
+            placeholder="Ej: 912345678"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label for="region" class="form-label">Región</label>
+          <select class="form-select" id="region" required>
+            <option selected disabled>Seleccione una región</option>
+            <option>Región de Valparaíso</option>
+            <option>Región Metropolitana</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label for="comuna" class="form-label">Comuna</label>
+          <select class="form-select" id="comuna" required disabled>
+            <option selected disabled>Seleccione una región primero</option>
+          </select>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success">Registrarse</button>
+        </div>
+      </form>
     </div>
-    
+
+    <!-- Modal: Menor de edad -->
+    <div
+      class="modal fade"
+      id="minorModal"
+      tabindex="-1"
+      aria-labelledby="minorModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-warning-subtle">
+            <h5 class="modal-title" id="minorModalLabel">
+              Requisito no cumplido
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Cerrar"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Para registrarte debes ser <strong>mayor de 18 años</strong>. La
+            fecha ingresada indica que no cumples con este requisito.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Entendido
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="assets/js/registroUsuario.js"></script>
+  </body>
 </html>

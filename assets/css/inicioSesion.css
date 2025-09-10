@@ -1,11 +1,56 @@
+/* Navbar */
 .navbar {
-  box-shadow: 0 0 15px rgba(30, 144, 255);
+  box-shadow: 0 0 15px rgba(30, 144, 255, 0.6);
 }
 
 .nav-link {
   color: #ffffff;
 }
 
+/* Contenedor principal del formulario */
 .container {
-  box-shadow: 0 0 15px rgba(30, 144, 255);
+  max-width: 500px; /* el formulario no será más ancho que 500px */
+  margin: 50px auto; /* centrado con margen superior */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(30, 144, 255, 0.6);
+  background-color: #1f1d1e;
+}
+
+/* Formulario */
+#userform {
+  color: #ffffff;
+}
+
+/* Inputs */
+#userform .form-control {
+  background-color: #2a2a2a;
+  border: none;
+  color: #ffffff;
+}
+
+#userform .form-control:focus {
+  background-color: #333;
+  color: #ffffff;
+  box-shadow: 0 0 5px #1e90ff;
+}
+
+/* Botón */
+#userform button {
+  background-color: #1e90ff;
+  border: none;
+  padding: 0.75rem;
+  font-weight: bold;
+}
+
+#userform button:hover {
+  background-color: #187bcd;
+}
+
+/* Responsividad en móviles */
+@media (max-width: 576px) {
+  .container {
+    max-width: 90%; /* se ajusta al ancho del móvil */
+    padding: 1.5rem;
+  }
 }
