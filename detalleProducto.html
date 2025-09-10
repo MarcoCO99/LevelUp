@@ -46,16 +46,16 @@
                 <a class="nav-link" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Productos</a>
+                <a class="nav-link" href="./productos.html">Productos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Blogs</a>
+                <a class="nav-link" href="./blogs.html">Blogs</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contacto</a>
+                <a class="nav-link" href="./contacto.html">Contacto</a>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -69,12 +69,33 @@
         </div>
       </nav>
     </header>
-    <!-- Ruta de navegación -->
-    <div class="breadcrumb my-4" style="color: #ffffff">
-      <a href="#">Home</a> &gt;<a href="#">Category X</a> &gt;Product Title
-    </div>
-    <!-- Detalle producto -->
-    <h3 class="text-end mb-4" style="color: #ffffff">Nombre producto</h3>
-    <div class="container"></div>
+    <!-- DETALLE DE PRODUCTOS -->
+    <section class="container my-5">
+      <h3 class="mb-4 text-white">Mi carrito de compras</h3>
+      <div class="row g-4">
+        <!-- LISTA -->
+        <div class="col-12 col-lg-8">
+          <div id="cart-items" class="d-grid gap-3"></div>
+        </div>
+
+        <!-- RESUMEN -->
+        <div class="col-12 col-lg-4">
+          <div class="card border-0" style="background: #1f1d1e; color: #fff">
+            <div class="card-body">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h5 class="mb-0">TOTAL:</h5>
+                <h5 class="mb-0 fw-bold" id="cart-total">$0</h5>
+              </div>
+              <button class="btn btn-success w-100 py-2">PAGAR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/detalleProducto.js"></script>
   </body>
 </html>
