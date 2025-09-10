@@ -40,12 +40,25 @@ function existeEmail(email) {
   );
 }
 function agregarUsuario(usuario) {
-  const usuarios = obtenerUsuarios();
-  usuarios.push(usuario);
-  guardarUsuarios(usuarios);
+  try {
+    const raw = localStorage.getItem("usuarios");
+    const lista = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(lista))
+      throw new Error("La clave 'usuarios' no es lista");
+    lista.push(usuario);
+    localStorage.setItem("usuarios", JSON.stringify(lista));
+    console.log("[registro] Usuario agregado. Total ahora:", lista.length);
+  } catch (e) {
+    console.error("[registro] Error guardando en localStorage.usuarios:", e);
+    const lista = [usuario];
+    localStorage.setItem("usuarios", JSON.stringify(lista));
+    console.warn(
+      "[registro] La clave 'usuarios' fue reescrita como nueva lista."
+    );
+  }
 }
 
-// ===== UI: alertas con Bootstrap =====
+// ===== UI: alertas =====
 function mostrarAlerta(msg, tipo = "danger", ms = 4000) {
   const cont = document.querySelector(".alert-container");
   if (!cont) return alert(msg);
@@ -66,19 +79,18 @@ function calcularEdad(yyyy_mm_dd) {
 
 // ===== Poblar comunas según región =====
 function resetearComunasSelect(
-  comunaSelect,
+  sel,
   placeholder = "Seleccione una región primero"
 ) {
-  comunaSelect.innerHTML = "";
+  sel.innerHTML = "";
   const opt = document.createElement("option");
   opt.textContent = placeholder;
   opt.selected = true;
   opt.disabled = true;
-  comunaSelect.appendChild(opt);
+  sel.appendChild(opt);
 }
 function cargarComunas(regionSelect, comunaSelect) {
-  const region = regionSelect.value;
-  const comunas = REGIONES_COMUNAS[region] || [];
+  const comunas = REGIONES_COMUNAS[regionSelect.value] || [];
   resetearComunasSelect(comunaSelect, "Seleccione una comuna");
   comunas.forEach((c) => {
     const o = document.createElement("option");
@@ -142,19 +154,13 @@ function validarCampos({
     return false;
   }
 
-  // Región y Comuna
+  // Región / Comuna
   if (region.selectedIndex === 0) {
     mostrarAlerta("Selecciona una región.");
     return false;
   }
   if (comuna.disabled || comuna.selectedIndex === 0) {
     mostrarAlerta("Selecciona una comuna.");
-    return false;
-  }
-
-  // Email duplicado
-  if (existeEmail(email)) {
-    mostrarAlerta("Ya existe un usuario registrado con ese email.");
     return false;
   }
 
@@ -178,7 +184,7 @@ function construirUsuario({
     fechaNacimiento: fechaNacimiento.value,
     edad,
     email: correo.value.trim(),
-    password: contraseña.value, // ⚠️ No guardar plano en producción
+    password: contraseña.value, // ⚠️ En producción nunca guardar en plano
     telefono: telefono.value.replace(/\D/g, ""),
     region: region.value,
     comuna: comuna.value,
@@ -186,7 +192,7 @@ function construirUsuario({
   };
 }
 
-// ===== Inicialización =====
+// ===== Init =====
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("userform");
 
@@ -202,7 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
     comuna: document.getElementById("comuna"),
   };
 
-  // Comuna bloqueada hasta seleccionar región
   resetearComunasSelect(refs.comuna, "Seleccione una región primero");
   refs.comuna.disabled = true;
 
@@ -216,30 +221,25 @@ document.addEventListener("DOMContentLoaded", () => {
     refs.comuna.disabled = false;
   });
 
-  // Envío del formulario
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // 1) Validaciones generales (excepto edad, que se maneja abajo con modal)
     if (!validarCampos(refs)) return;
 
-    // 2) Validar edad: si < 18, mostrar modal y cortar flujo
+    // Edad: bloquear menores de 18 con modal
     const edad = calcularEdad(refs.fechaNacimiento.value);
     if (isNaN(edad) || edad < 18) {
       const modalEl = document.getElementById("minorModal");
       const modal = new bootstrap.Modal(modalEl);
       modal.show();
-      return; // ❌ No se registra
+      return;
     }
 
-    // 3) Registrar (edad >= 18)
     const usuario = construirUsuario(refs);
     agregarUsuario(usuario);
 
     mostrarAlerta("Usuario registrado correctamente ✅", "success");
     form.reset();
-
-    // Reset selects
     resetearComunasSelect(refs.comuna, "Seleccione una región primero");
     refs.comuna.disabled = true;
     refs.region.selectedIndex = 0;
